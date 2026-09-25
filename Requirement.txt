@@ -1,0 +1,261 @@
+I want you to create a Google Apps Script automation inside the existing Google Spreadsheet:
+
+**Spreadsheet:** `Dispatch Manpower Planning`
+
+There are two important sheets:
+
+### Source Sheet
+
+`Sep. Roster-2026`
+
+This contains the manpower/roster data that we currently manually copy.
+
+### New Target Sheet
+
+`Manesar_Attendance`
+
+I want the script to create and maintain `Manesar_Attendance` as a **replica of the `Dispatch` sheet** from another spreadsheet:
+
+**Reference Spreadsheet:** `2026_Manesar_Attendance_Tracker`
+**Reference Sheet:** `Dispatch`
+
+---
+
+## Objective
+
+Currently, we manually take data from:
+
+`Dispatch Manpower Planning` → `Sep. Roster-2026`
+
+and manually copy/paste/prepare it according to the format of:
+
+`2026_Manesar_Attendance_Tracker` → `Dispatch`
+
+I want to automate this completely.
+
+The final result should be:
+
+**`Sep. Roster-2026`**
+↓
+**Apps Script**
+↓
+**`Manesar_Attendance`**
+
+where `Manesar_Attendance` follows the **same structure, format and logic as the `Dispatch` sheet** in `2026_Manesar_Attendance_Tracker`.
+
+---
+
+## Important: Same Spreadsheet
+
+The new `Manesar_Attendance` sheet must be created **inside the existing `Dispatch Manpower Planning` spreadsheet**.
+
+Do NOT create another spreadsheet.
+
+The structure should be:
+
+`Dispatch Manpower Planning`
+
+* `Sep. Roster-2026` ← source data
+* `Manesar_Attendance` ← automatically generated/updated replica
+
+---
+
+## First, analyze the reference Dispatch sheet
+
+Before writing the script, carefully analyze:
+
+`2026_Manesar_Attendance_Tracker` → `Dispatch`
+
+I will provide access/file/data for this reference.
+
+Identify exactly:
+
+* Headers
+* Column order
+* Employee Name
+* Employee Code/ID
+* Date fields
+* Shift fields
+* Attendance fields
+* Department
+* Designation
+* Manpower category
+* Any other fields
+* Formulas
+* Formatting
+* Number formats
+* Date formats
+* Merged cells
+* Row heights/column widths
+* Conditional formatting
+* Data validation/dropdowns
+* Hidden rows/columns
+* Any formulas or logic
+* Any special layout requirements
+
+Do not assume the source and target columns are in the same order.
+
+Create a proper **source-to-target field mapping** based on the actual data.
+
+---
+
+## Replica requirement
+
+`Manesar_Attendance` should look and behave like the reference:
+
+`2026_Manesar_Attendance_Tracker` → `Dispatch`
+
+The script should reproduce the required:
+
+* Header structure
+* Column structure
+* Formatting
+* Formulas
+* Date formatting
+* Employee information
+* Attendance/roster information
+* Relevant validations
+* Required conditional formatting
+* Any other important Dispatch-sheet logic
+
+The original `2026_Manesar_Attendance_Tracker` must NOT be modified.
+
+---
+
+## Automation
+
+The script should read the data from:
+
+`Sep. Roster-2026`
+
+and automatically populate/update:
+
+`Manesar_Attendance`
+
+The ideal workflow is:
+
+1. Open `Dispatch Manpower Planning`.
+2. Update/paste the latest roster into `Sep. Roster-2026`.
+3. Run the automation.
+4. Script reads the roster.
+5. Script maps the roster data to the required Dispatch format.
+6. `Manesar_Attendance` is automatically updated.
+7. The sheet is ready for use.
+
+If possible, provide a custom menu such as:
+
+**Manesar Attendance**
+
+* `Create/Update Attendance`
+* `Refresh Format`
+* `Clear & Rebuild`
+
+---
+
+## Important data-handling requirements
+
+The script must:
+
+* Automatically detect the last row.
+* Handle different numbers of employees.
+* Handle new employees.
+* Handle employees whose order changes.
+* Handle blank rows safely.
+* Handle dates correctly.
+* Avoid duplicate employee/date records.
+* Update existing records when the same employee/date already exists.
+* Add new records when required.
+* Never unnecessarily duplicate existing data.
+* Preserve formulas where required.
+* Preserve formatting.
+* Avoid overwriting unrelated cells.
+* Be safe to run multiple times.
+* Show a clear success/error message after execution.
+
+---
+
+## Most important requirement
+
+Do NOT create a generic Apps Script.
+
+First understand exactly how:
+
+`Sep. Roster-2026`
+
+needs to be converted into the format of:
+
+`2026_Manesar_Attendance_Tracker` → `Dispatch`
+
+The script must reproduce the **actual existing manual process**, but automatically.
+
+If the current manual process involves specific transformations, calculations, matching employees, date handling, or copying particular columns, identify those from the provided sheets and implement them.
+
+---
+
+## Final deliverables
+
+After analyzing the actual sheets, provide:
+
+### 1. Source → Target Mapping
+
+A table showing:
+
+`Sep. Roster-2026 column`
+→
+`Manesar_Attendance column`
+
+and explain any transformation.
+
+### 2. Complete Apps Script
+
+Give me the complete working `Code.gs`.
+
+Do not give partial code or pseudocode.
+
+### 3. Setup Instructions
+
+Explain:
+
+* Where to paste the script
+* Any Spreadsheet ID that is required
+* Any permissions that must be authorized
+* How to run it
+* How to create the custom menu
+* How to create an optional trigger
+
+### 4. Testing
+
+Give me a small test procedure first, preferably with 5–10 employees, before processing the complete roster.
+
+### 5. Error Handling
+
+The script should clearly tell me if:
+
+* Required sheet is missing
+* Required column/header is missing
+* Employee cannot be matched
+* Date is invalid
+* Unexpected data is found
+
+---
+
+## Final desired setup
+
+The final spreadsheet should work like this:
+
+**Dispatch Manpower Planning**
+
+`Sep. Roster-2026`
+→ latest manpower roster
+
+`Manesar_Attendance`
+→ automated replica of the `Dispatch` format
+
+Reference only:
+
+`2026_Manesar_Attendance_Tracker`
+→ `Dispatch`
+
+The reference spreadsheet is only used to understand/copy the required Dispatch structure. It should not be modified.
+
+Build the solution specifically around the actual sheets/data I provide.
